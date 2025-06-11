@@ -28,11 +28,25 @@ public class EmployeRepo {
         ArrayNode listeEmployes = retounerEmpploye();
         for (JsonNode node : listeEmployes){
             if(node.get("email").asText().equals(email) && node.get("motDePasse").asText().equals(motDePasse) ){
-                return new Employe(node.get("nom").asText(), node.get("prenom").asText(),
+                Employe employe = new Employe(node.get("nom").asText(), node.get("prenom").asText(),
                         node.get("email").asText(),
                         node.get("motDePasse").asText());
+                employe.setEstAdmin(node.get("estAdmin").asBoolean());
+                return employe;
             }
         }
         return null;
     }
-}
+
+    //Fonction pour afficher la liste des employés
+    public void afficherEmploye(){
+        ArrayNode listeEmployes = retounerEmpploye();
+        for (JsonNode node : listeEmployes){
+            System.out.println("Nom : "+node.get("nom").asText());
+            System.out.println("Prénom : "+node.get("prenom").asText());
+            System.out.println("Email : "+node.get("email").asText()+"\n");
+            System.out.println("***************************************************");
+        }
+    }
+
+    }

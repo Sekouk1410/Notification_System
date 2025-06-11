@@ -1,7 +1,6 @@
 package interfaces;
 
 public interface IServiceNotification {
-    public void ajouterAbonne();
-    public void retirerAbonne();
-
+    public void ajouterAbonne(String emailEmploye);
+    public void retirerAbonne(String emailEmploye);
 }

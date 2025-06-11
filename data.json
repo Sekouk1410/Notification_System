@@ -1,0 +1,19 @@
+{
+  "Employes" : [ {
+    "id" : 1,
+    "nom" : "Keita",
+    "prenom" : "Sékou",
+    "email" : "sekouk1410@gmail.com",
+    "motDePasse" : "sekouk",
+    "estAbonne" : false,
+    "estAdmin" : true
+  }, {
+    "id" : 2,
+    "nom" : "Diallo",
+    "prenom" : "Flakaini Amadou",
+    "email" : "jimlecraken13@gmail.com",
+    "motDePasse" : "azerty",
+    "estAbonne" : false,
+    "estAdmin" : false
+  } ]
+}
