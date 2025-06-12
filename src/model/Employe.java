@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Employe {
     private int id;
     private String nom;
@@ -8,6 +10,7 @@ public class Employe {
     private String motDePasse;
     private boolean estAbonne;
     private boolean estAdmin = false;
+    private List<Messages> notifications;
 
     public Employe(String nom, String prenom, String email, String motDePasse) {
         this.nom = nom;
@@ -71,5 +74,13 @@ public class Employe {
 
     public void setEstAdmin(boolean estAdmin) {
         this.estAdmin = estAdmin;
+    }
+
+    public List<Messages> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Messages> notifications) {
+        this.notifications = notifications;
     }
 }

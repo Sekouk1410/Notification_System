@@ -5,15 +5,21 @@
     "prenom" : "Sékou",
     "email" : "sekouk1410@gmail.com",
     "motDePasse" : "sekouk",
-    "estAbonne" : false,
-    "estAdmin" : true
+    "estAbonne" : true,
+    "estAdmin" : true,
+    "notifications" : [ ]
   }, {
     "id" : 2,
     "nom" : "Diallo",
     "prenom" : "Flakaini Amadou",
-    "email" : "jimlecraken13@gmail.com",
+    "email" : "jimlecracken13@gmail.com",
     "motDePasse" : "azerty",
-    "estAbonne" : false,
-    "estAdmin" : false
+    "estAbonne" : true,
+    "estAdmin" : false,
+    "notifications" : [ {
+      "objet" : "Reunion",
+      "contenu" : "rdv à 12h",
+      "emailMessaExp" : "sekouk1410@gmail.com"
+    } ]
   } ]
 }

@@ -36,7 +36,7 @@ public class Main {
                                 System.out.println("1: Afficher la liste des employés");
                                 System.out.println("2: Ajouter des abonnés");
                                 System.out.println("3: Retirer des abonnés");
-                                System.out.println("3: Envoyer un message");
+                                System.out.println("4: Envoyer un message");
                                 System.out.println("4: Afficher les notifications reçues");
                                 System.out.println("5: Vérifier l'abonnement");
                                 System.out.println("7: Se déconnecter");
@@ -57,6 +57,7 @@ public class Main {
                                         serviceNotification.retirerAbonne(emailAbonne1);
                                         break;
                                     case 4:
+                                        serviceNotification.notifier(email);
                                         break;
                                     case 5:
                                         break;

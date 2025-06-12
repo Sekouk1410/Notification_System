@@ -1,5 +1,6 @@
 package repositorie;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -47,6 +48,29 @@ public class EmployeRepo {
             System.out.println("Email : "+node.get("email").asText()+"\n");
             System.out.println("***************************************************");
         }
+    }
+
+    public List<Employe> listeEmploye(){
+        // Lire tout le fichier comme un objet JSON
+        JsonNode rootNode = null;
+        List<Employe> employes = null;
+        try {
+            rootNode = mapper.readTree(file);
+            // Récupérer le tableau "Employes"
+            JsonNode employesNode = rootNode.get("Employes");
+            if (employesNode == null || !employesNode.isArray()) {
+                System.out.println("Erreur : le champ 'Employes' est introuvable ou mal formé.");
+            }
+            // Convertir le tableau JSON en liste d'objets Java
+            employes = mapper.readValue(
+                    mapper.treeAsTokens(employesNode),
+                    new TypeReference<List<Employe>>() {}
+            );
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return employes;
     }
 
     }
