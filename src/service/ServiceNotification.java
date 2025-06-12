@@ -90,7 +90,7 @@ public class ServiceNotification implements IServiceNotification {
                     throw new RuntimeException(e);
                 }
 
-                System.out.println("L'employé avec l'email " + emailEmploye + " est maintenant abonné.");
+                System.out.println("L'employé avec l'email " + emailEmploye + " s'est désabonné.");
             } else {
                 System.out.println("Aucun employé trouvé avec l'email : " + emailEmploye);
             }
@@ -125,18 +125,22 @@ public class ServiceNotification implements IServiceNotification {
     public void afficherNotifications(String email, String motDePasse)
     {
         List<Employe> listEmploye = employeRepo.listeEmploye();
-        for(Employe emp : listEmploye)
-        {
-            if(emp.getEmail().equals(email)
-                    && emp.getMotDePasse().equals(motDePasse)&& emp.isEstAbonne())
-            {
+        for(Employe emp : listEmploye) {
+            if (emp.isEstAbonne() && emp.getNotifications().isEmpty()){
+                System.out.println("Vous n'avez pas encore réçu de notification\n");
+            }
+            if((emp.getEmail().equals(email) &&
+                    emp.getMotDePasse().equals(motDePasse) &&
+                    emp.isEstAbonne()) || (!emp.getNotifications().isEmpty() && !emp.isEstAbonne())
+            ){
                 int i = 1;
                 for(Messages messages : emp.getNotifications())
                 {
-                    System.out.println(i+"-----------------------------");
+                    System.out.println("---------------"+i+"---------------");
                     System.out.println("Objet:" + messages.getObjet());
-                    System.out.println("Content:"+messages.getContenu());
-                    System.out.println("Expéditeur"+messages.getEmailMessaExp());
+                    System.out.println("Message : \n"+messages.getContenu());
+                    System.out.println("Expéditeur : "+messages.getEmailMessaExp());
+                    System.out.println("-------------------------------");
                     i++;
                 }
             }

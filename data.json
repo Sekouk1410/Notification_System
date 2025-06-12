@@ -14,7 +14,7 @@
     "prenom" : "Flakaini Amadou",
     "email" : "jimlecracken13@gmail.com",
     "motDePasse" : "azerty",
-    "estAbonne" : true,
+    "estAbonne" : false,
     "estAdmin" : false,
     "notifications" : [ {
       "objet" : "Reunion",

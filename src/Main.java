@@ -37,8 +37,8 @@ public class Main {
                                 System.out.println("2: Ajouter des abonnés");
                                 System.out.println("3: Retirer des abonnés");
                                 System.out.println("4: Envoyer un message");
-                                System.out.println("4: Afficher les notifications reçues");
-                                System.out.println("5: Vérifier l'abonnement");
+                                System.out.println("5: Afficher les notifications reçues");
+                                System.out.println("6: Vérifier l'abonnement");
                                 System.out.println("7: Se déconnecter");
 
                                 choixMenu = scanner.nextInt();
@@ -60,6 +60,7 @@ public class Main {
                                         serviceNotification.notifier(email);
                                         break;
                                     case 5:
+                                        serviceNotification.afficherNotifications(email,motDePasse);
                                         break;
                                     case 6:
                                         break;
@@ -70,12 +71,25 @@ public class Main {
                             } while (choixMenu != 7) ;
                             break;
                         }else {
-                            System.out.println("1: Afficher la liste des employés");
-                            System.out.println("2: Ajouter et retirer des abonnés");
-                            System.out.println("3: Envoyer un message");
-                            System.out.println("4: Afficher les notifications reçues");
-                            System.out.println("5: Vérifier l'abonnement");
-                            System.out.println("7: Se déconnecter");
+                            do {
+                                System.out.println("1: S'abonné au service de notification");
+                                System.out.println("2: Se désabonné du service de notification");
+                                System.out.println("3: Envoyer un message");
+                                System.out.println("4: Afficher les notifications reçuées");
+                                System.out.println("5: Se déconnecter");
+
+                                choixMenu = scanner.nextInt();
+
+                                switch (choixMenu){
+                                    case 1: serviceNotification.ajouterAbonne(email);
+                                            break;
+                                    case 2: serviceNotification.retirerAbonne(email);
+                                            break;
+                                    case 3: serviceNotification.notifier(email);
+                                            break;
+                                    case 4: serviceNotification.afficherNotifications(email,motDePasse);
+                                }
+                            }while (choixMenu != 5);
                         }
                     }else{
                         System.out.println("Mot de passe ou email incorrecte");
