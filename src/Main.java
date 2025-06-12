@@ -63,6 +63,7 @@ public class Main {
                                         serviceNotification.afficherNotifications(email,motDePasse);
                                         break;
                                     case 6:
+                                        serviceNotification.verifierAbonnement();
                                         break;
                                     case 7:
                                         break;

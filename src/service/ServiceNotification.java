@@ -122,8 +122,7 @@ public class ServiceNotification implements IServiceNotification {
         }
 
     }
-    public void afficherNotifications(String email, String motDePasse)
-    {
+    public void afficherNotifications(String email, String motDePasse) {
         List<Employe> listEmploye = employeRepo.listeEmploye();
         for(Employe emp : listEmploye) {
             if (emp.isEstAbonne() && emp.getNotifications().isEmpty()){
@@ -143,6 +142,19 @@ public class ServiceNotification implements IServiceNotification {
                     System.out.println("-------------------------------");
                     i++;
                 }
+            }
+        }
+    }
+
+    public void verifierAbonnement(){
+        List<Employe> employeList = employeRepo.listeEmploye();
+        System.out.println("Entrez l'eamil de l'employé : ");
+        String emailEntre = scanner.nextLine();
+        for (Employe emp : employeList){
+            if(emailEntre.equals(emp.getEmail()) && emp.isEstAbonne()){
+                System.out.println("L'employé avec l'email "+emailEntre+" est abonné au service de notification\n");
+            } else if (emailEntre.equals(emp.getEmail()) && !emp.isEstAbonne()) {
+                System.out.println("L'employé avec l'email "+emailEntre+" n'est pas abonné au service de notification\n");
             }
         }
     }
